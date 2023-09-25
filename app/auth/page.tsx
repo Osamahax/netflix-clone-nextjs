@@ -28,8 +28,8 @@ const Auth = () =>{
                                 <Input 
                                     lable="Username"
                                     onChange={(e:any)=>setName(e.target.value)}
-                                    id="email"
-                                    type="email"
+                                    id="username"
+                                    type="username"
                                     value={name}
                                 />
                             )}
