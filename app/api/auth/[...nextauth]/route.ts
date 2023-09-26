@@ -38,8 +38,17 @@ providers:[
             return user
         }
     })
-]
-
+],
+pages:{
+    signIn: '/auth'
+},
+debug: process.env.NODE_ENV === 'development',
+session: {
+    strategy: 'jwt',
+},
+jwt:{
+    secret: process.env.NEXTAUTH_JWT_SECRET,
+},
 })
 
 export {handler as GET, handler as POST}
