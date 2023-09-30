@@ -1,28 +1,21 @@
+"use client"
 import Image from 'next/image'
-import { signOut } from 'next-auth/react'
-import serverAuth from '@/lib/serverAuth'
-
-// export async function getServerprops(){
-//   const userSession = await serverAuth();
-//   console.log(userSession)
-//   if(!userSession){
-//     return {
-//       redirect: {
-//         destination: '/auth',
-//         perment: true
-//       }
-//     }
-//   }
-// }
-export async function getServerSession(){
-
-}
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation';
+import { signOut } from "next-auth/react"
+import useCurrentUser from '@/hooks/useCurrentUser';
 export default function Home() {
-  // getServerprops();
+  const {data:session,status}=useSession()
+  const router = useRouter()
+  console.log(session)
+  if(!session){
+    router.push('/auth')
+  }
   return (
     <main>
+      <h1 className='text-white'>Logged in as: {session?.user?.name}</h1>
       <h1 className='text-green-500'>Nextjs</h1>
-      <button >Logout</button>
+      <button className='w-full bg-red-700' onClick={()=>signOut()}>Logout</button>
     </main>
   )
 }

@@ -24,8 +24,7 @@ const Auth = () =>{
             await signIn('credentials',{
                 email,
                 password,
-                redirect:false,
-                callbackUrl: '/'
+                callbackUrl: '/profiles'
             });
             router.push('/');
         }catch(error) {
@@ -84,12 +83,12 @@ const Auth = () =>{
                         </button>
                         <div className="flex flex-row items-center gap-4 mt-8 justify-center">
                             <div
-                                onClick={()=>signIn('google',{callbackUrl:'/'})} 
+                                onClick={()=>signIn('google',{callbackUrl:'/profiles'})} 
                                 className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition">
                                 <FcGoogle size={30} />
                             </div>
                             <div 
-                                onClick={()=>signIn('github',{callbackUrl:'/'})} 
+                                onClick={()=>signIn('github',{callbackUrl:'/profiles'})} 
                                 className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition">
                                 <FaGithub size={30} />
                             </div>

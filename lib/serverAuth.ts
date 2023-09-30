@@ -14,7 +14,7 @@ const serverAuth =async () => {
     }
 
     const currentUser = await prismadb.user.findUnique({
-        where:{email:session.user.email}
+        where:{email:session?.user?.email as string}
     });
 
     if(!currentUser){

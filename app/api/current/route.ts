@@ -14,3 +14,4 @@ const handler =async (req:NextRequest, res:NextResponse) => {
         return NextResponse.json({status:400});
     }
 } 
+export {handler as GET, handler as POST}
