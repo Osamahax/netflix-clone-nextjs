@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { signOut } from "next-auth/react"
 import useCurrentUser from '@/hooks/useCurrentUser';
 import Navbar from '@/components/Navbar';
+import Billboard from '@/components/Billboard';
 export default function Home() {
   const {data:session,status}=useSession()
   const router = useRouter()
@@ -15,6 +16,7 @@ export default function Home() {
   return (
     <main>
       <Navbar />
+      <Billboard />
     </main>
   )
 }

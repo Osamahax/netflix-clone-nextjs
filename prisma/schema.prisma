@@ -66,7 +66,7 @@ model Movie {
   title String
   description String
   videoUrl String
-  thumnailUrl String
+  thumnailUrl String? @db.String
   genre String
   duration String
 }
