@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image"
 import NavbarItem from "./NavbarItem"
 import {BsChevronDown} from "react-icons/bs"
