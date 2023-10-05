@@ -3,21 +3,26 @@ import useBillboard from "@/hooks/useBillboards";
 import React from "react";
 import Movie from "./Movie";
 import movieData from "@/lib/movie.json";
-import {AiOutlineInfoCircle} from "react-icons/ai"
+import { AiOutlineInfoCircle } from "react-icons/ai";
 const Billboard = async () => {
   const data = await Allmovies();
   // console.log(data)
   const randomIndex = Math.floor(Math.random() * 4);
-  const randomMovie = movieData[randomIndex]
+  const randomMovie = movieData[randomIndex];
   return (
     <div className="relative h-[56.25vw]">
-      <video 
-      className="w-full
+      <video
+        className="w-full
         h-[56.25vw]
         object-cover
         brightness-[60%]
       "
-      autoPlay muted loop src={randomMovie.videoUrl} poster={randomMovie.thumbnailUrl}></video>
+        autoPlay
+        muted
+        loop
+        src={randomMovie.videoUrl}
+        poster={randomMovie.thumbnailUrl}
+      ></video>
       <div className="absolute top-30% md:top-[40%] ml-4 md:ml-16">
         <p className="text-white text-xl md:text-5xl h-full w-[50%] lg:text-6xl font-bold drop-shadow-xl">
           {randomMovie.title}
@@ -32,16 +37,21 @@ const Billboard = async () => {
           </button>
         </div>
       </div>
-      <div className="flex flex-wrap gap-6 px-4 md:px-16">
-        {data.results.map((movie: any) => (
-          <div key={movie.title} className="text-white">
-            <Movie
-              title={movie.title}
-              description={movie.overview}
-              poster_path={movie.poster_path}
-            />
-          </div>
-        ))}
+      <div className="mt-8">
+        <div className="px-4 md:px-16 mb-4">
+          <h1 className="text-4xl text-white font-bold">Movies</h1>
+        </div>
+        <div className="flex flex-wrap gap-6 px-4 md:px-16">
+          {data.results.map((movie: any) => (
+            <div key={movie.title} className="text-white">
+              <Movie
+                title={movie.title}
+                description={movie.overview}
+                poster_path={movie.poster_path}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

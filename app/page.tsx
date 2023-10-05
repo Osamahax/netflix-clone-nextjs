@@ -13,7 +13,7 @@ export default async function Home() {
   // const router = usePathname()
   console.log(session)
   if(!session){
-    return '/auth'
+    redirect( '/auth')
   }
   return (
     <main>
